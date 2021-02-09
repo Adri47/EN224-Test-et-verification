@@ -3,6 +3,8 @@
 #include "math.h"
 #include <time.h>
 
+#define MAX 65535
+
 int PGCD(int A, int B)
 {
 	if (B == 0) return A;
@@ -67,7 +69,7 @@ int main (int argc, char * argv []){
 	int A = 0 ;
 	int B = 0 ;
 
-	for (int i = 0 ; i < 200000 ; i++)
+	for (int i = 0 ; i < MAX ; i++)
 	{
 		A = RandA();
 		B = RandB();
