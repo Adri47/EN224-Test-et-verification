@@ -2,13 +2,17 @@
 #include "stdlib.h"
 #include "math.h"
  #include <assert.h>
- 
+
 int PGCD(int A, int B)
 {
 	assert (A < 65536);
   assert (B < 65536);
 	assert (A >= 0);
   assert (B >= 0);
+
+  if (B == 0) return A;
+	if (A == 0) return B;
+	if ( (A && B) ==0) return 0;
 
 		while(A != B)
 		{
