@@ -5,6 +5,10 @@
 
 int PGCD(int A, int B)
 {
+	if (B == 0) return A;
+	if (A == 0) return B;
+	if ( (A && B) ==0) return 0;
+
 		while(A != B)
 		{
 			if (A >B)
@@ -16,11 +20,6 @@ int PGCD(int A, int B)
 			}
 		}
 	return A;
-}
-
-int CheckPGCD(int A, int B)
-{
-	
 }
 
 int RandA()
