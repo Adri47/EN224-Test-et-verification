@@ -62,9 +62,15 @@ begin
 
 	cal_nx_state : process (pr_state, idata_en, value_A, value_B)
     begin
+    
     	case pr_state is
     		when Etat_init =>
     			if(idata_en = '1') then
+    			   assert idata_a < std_logic_vector(to_unsigned(65536,32)) report "Attention nombre A trop grand" severity error;
+    			   assert idata_b < std_logic_vector(to_unsigned(65536,32)) report "Attention nombre B trop grand" severity error;
+    			   assert idata_a >= std_logic_vector(to_unsigned(0,32)) report "Attention nombre A trop petit" severity error;
+    			   assert idata_b >= std_logic_vector(to_unsigned(0,32)) report "Attention nombre B trop petit" severity error;
+
     				nx_state <= Etat_Check;
     			else
     				nx_state <= Etat_init;
@@ -102,15 +108,20 @@ begin
     
     cal_output : process( pr_state )
     begin
+    	
     	case pr_state is
     		when Etat_Init =>
     			odata_en <= '0';  			
     		when Etat_Az =>
     			odata <= std_logic_vector(to_unsigned(value_B, 32));
     			odata_en <= '1';
+    			assert idata_a < std_logic_vector(to_unsigned(0,32)) report "Attention PGCD inférieur à zéro" severity error;
+
     		when Etat_CalEnd =>
     			odata <= std_logic_vector(to_unsigned(value_A, 32));
     			odata_en <= '1';
+                assert idata_a = std_logic_vector(to_unsigned(2,32)) report "Attention PGCD inférieur à zéro" severity error;
+
     		when others =>
     			odata <= std_logic_vector(to_unsigned(0, 32));
     			odata_en <= '0';
