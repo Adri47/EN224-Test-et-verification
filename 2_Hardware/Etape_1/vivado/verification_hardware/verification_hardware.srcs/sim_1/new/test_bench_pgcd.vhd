@@ -92,31 +92,13 @@ begin
 
         -- EDIT Add stimuli here
         wait for 10 * TbPeriod;
-		idata_a <= std_logic_vector(to_unsigned(12, 32));
-        idata_b <= std_logic_vector(to_unsigned(0, 32));
+		idata_a <= std_logic_vector(to_unsigned(1000, 32));
+        idata_b <= std_logic_vector(to_unsigned(20, 32));
         wait for 1 * TbPeriod;
         idata_en <= '1';
         wait for 1 * TbPeriod;
         idata_en <= '0';
-        wait for 10 * TbPeriod;
-        
-        wait for 10 * TbPeriod;
-		idata_a <= std_logic_vector(to_unsigned(65536, 32));
-        idata_b <= std_logic_vector(to_unsigned(1046, 32));
-        wait for 1 * TbPeriod;
-        idata_en <= '1';
-        wait for 1 * TbPeriod;
-        idata_en <= '0';
-        wait for 50 * TbPeriod;
-        
-        wait for 10 * TbPeriod;
-		idata_a <= std_logic_vector(to_unsigned(12, 32));
-        idata_b <= std_logic_vector(to_unsigned(1, 32));
-        wait for 1 * TbPeriod;
-        idata_en <= '1';
-        wait for 1 * TbPeriod;
-        idata_en <= '0';
-        wait for 50 * TbPeriod;
+        wait for 100 * TbPeriod;  
         
         -- Stop the clock and hence terminate the simulation
         TbSimEnded <= '1';

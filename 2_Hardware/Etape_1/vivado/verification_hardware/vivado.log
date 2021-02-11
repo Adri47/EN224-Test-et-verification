@@ -1961,3 +1961,272 @@ Time: 233 ns  Iteration: 1  Process: /test_bench/dut/cal_nx_state  File: D:/Docu
 Error: Attention PGCD inférieur à zéro
 Time: 327500 ps  Iteration: 2  Process: /test_bench/dut/cal_output  File: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd
 relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1153.301 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PGCD'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.PGCD [pgcd_default]
+Compiling architecture tb of entity xil_defaultlib.test_bench
+Built simulation snapshot test_bench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Failure: Assertion violation
+Time: 213500 ps  Iteration: 1  Process: /test_bench/dut/line__34  File: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd
+$finish called at time : 213500 ps : File "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd" Line 104
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1188.176 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Failure: Assertion violation
+Time: 213500 ps  Iteration: 1  Process: /test_bench/dut/line__34  File: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd
+$finish called at time : 213500 ps : File "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd" Line 104
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1188.176 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Failure: Assertion violation
+Time: 213500 ps  Iteration: 1  Process: /test_bench/dut/line__34  File: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd
+$finish called at time : 213500 ps : File "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sources_1/new/pgcd.vhd" Line 104
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1188.176 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sim_1/new/test_bench_pgcd.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test_bench'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.PGCD [pgcd_default]
+Compiling architecture tb of entity xil_defaultlib.test_bench
+Built simulation snapshot test_bench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1188.176 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1188.176 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sim_1/new/test_bench_pgcd.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test_bench'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.PGCD [pgcd_default]
+Compiling architecture tb of entity xil_defaultlib.test_bench
+Built simulation snapshot test_bench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1189.320 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.srcs/sim_1/new/test_bench_pgcd.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test_bench'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.PGCD [pgcd_default]
+Compiling architecture tb of entity xil_defaultlib.test_bench
+Built simulation snapshot test_bench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 1189.320 ; gain = 0.000
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_bench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj test_bench_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_1/vivado/verification_hardware/verification_hardware.sim/sim_1/behav/xsim'
+"xelab -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto b6faac89487347989303ed0fb9636a91 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot test_bench_behav xil_defaultlib.test_bench -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1189.320 ; gain = 0.000

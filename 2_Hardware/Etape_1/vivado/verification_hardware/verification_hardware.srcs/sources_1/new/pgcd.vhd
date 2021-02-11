@@ -1,149 +1,118 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 09.02.2021 13:40:55
--- Design Name: 
--- Module Name: pgcd - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
+entity PGCD is
+    Port ( 
+           CLK      : in  STD_LOGIC;
+           RESET    : in  STD_LOGIC;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+           idata_a  : in  STD_LOGIC_VECTOR (31 downto 0);
+           idata_b  : in  STD_LOGIC_VECTOR (31 downto 0);
+           idata_en : in  STD_LOGIC;
 
-entity pgcd is
-port(
-		CLK      : in  STD_LOGIC;
-		RESET    : in  STD_LOGIC;
-	
-		idata_a  : in  STD_LOGIC_VECTOR (31 downto 0);
-		idata_b  : in  STD_LOGIC_VECTOR (31 downto 0);
-		idata_en : in  STD_LOGIC;
-	
-		odata    : out STD_LOGIC_VECTOR (31 downto 0);
-		odata_en : out STD_LOGIC
-);
-end pgcd;
+           odata    : out STD_LOGIC_VECTOR (31 downto 0);
+           odata_en : out STD_LOGIC
+	);
+end PGCD;
 
-architecture Behavioral of pgcd is
-	type Etat is ( Etat_init, Etat_Check, Etat_Az, Etat_CalStart, Etat_CalEnd );
-	signal pr_state , nx_state : Etat := Etat_init;
-	signal value_A, value_B : integer;
-begin
+ARCHITECTURE Behavioral of PGCD IS
 
-	maj_etat : process ( CLK , RESET )
-    begin
-        if (RESET ='1') then
-            pr_state <= Etat_init ;
-        elsif ( CLK ' event and CLK ='1') then
-            	pr_state <= nx_state ;
-        end if;
-    end process maj_etat;
-
-	cal_nx_state : process (pr_state, idata_en, value_A, value_B)
-    begin
+	SIGNAL A : UNSIGNED (31 downto 0);
+	SIGNAL B : UNSIGNED (31 downto 0);
     
-    	case pr_state is
-    		when Etat_init =>
-    			if(idata_en = '1') then
-    			   assert idata_a < std_logic_vector(to_unsigned(65536,32)) report "Attention nombre A trop grand" severity error;
-    			   assert idata_b < std_logic_vector(to_unsigned(65536,32)) report "Attention nombre B trop grand" severity error;
-    			   assert idata_a >= std_logic_vector(to_unsigned(0,32)) report "Attention nombre A trop petit" severity error;
-    			   assert idata_b >= std_logic_vector(to_unsigned(0,32)) report "Attention nombre B trop petit" severity error;
+    TYPE STATE_TYPE IS (WAITING, RUNNING, SENDING);
+    SIGNAL cstate : STATE_TYPE;
 
-    				nx_state <= Etat_Check;
-    			else
-    				nx_state <= Etat_init;
-    			end if;
-    		when Etat_Check =>
-    			if(idata_a = idata_b) then
-    				nx_state <= Etat_CalEnd;
-    			elsif(idata_a = "00000000000000000000000000000000") then
-    				nx_state <= Etat_Az;
-    			elsif(idata_b = "00000000000000000000000000000000") then
-    				nx_state <= Etat_CalEnd;
-    			elsif ((idata_a /= "00000000000000000000000000000000") and (idata_b /= "00000000000000000000000000000000")) then
-    				nx_state <= Etat_CalStart;
-    			else
-    				nx_state <= Etat_Check;
-    			end if;
-    			
-    		when Etat_Az =>
-    			nx_state <= Etat_init;
-    		
-    		when Etat_CalStart =>
-    			if(value_A = value_B) then
-    				nx_state <= Etat_CalEnd;
-    			else
-    				nx_state <= Etat_CalStart;
-    			end if;
-    			
-    		when Etat_CalEnd =>
-    			nx_state <= Etat_init;
-    		
-    		when others =>
-    			nx_state <= Etat_init;
-    	end case;
-    end process cal_nx_state;
-    
-    cal_output : process( pr_state )
-    begin
-    	
-    	case pr_state is
-    		when Etat_Init =>
-    			odata_en <= '0';  			
-    		when Etat_Az =>
-    			odata <= std_logic_vector(to_unsigned(value_B, 32));
-    			odata_en <= '1';
-    			assert idata_a < std_logic_vector(to_unsigned(0,32)) report "Attention PGCD inférieur à zéro" severity error;
+    -- pragma translate_off
+	SIGNAL A_copy : UNSIGNED (31 downto 0);
+	SIGNAL B_copy : UNSIGNED (31 downto 0);
+    -- pragma translate_on
+ 
+BEGIN
 
-    		when Etat_CalEnd =>
-    			odata <= std_logic_vector(to_unsigned(value_A, 32));
-    			odata_en <= '1';
-                assert idata_a = std_logic_vector(to_unsigned(2,32)) report "Attention PGCD inférieur à zéro" severity error;
+    PROCESS(CLK)
+    BEGIN
+        IF CLK'EVENT AND CLK = '1' THEN
+            IF RESET = '1' THEN
+                cstate   <= WAITING;
+                odata    <= (others=>'0');
+                odata_en <= '0';
+            ELSE
+                CASE cstate IS
+                
+                    WHEN WAITING =>
 
-    		when others =>
-    			odata <= std_logic_vector(to_unsigned(0, 32));
-    			odata_en <= '0';
-    	end case;
-    end process cal_output;
-    
-    calcule : process( CLK )
-    begin
-    	if (CLK ' event and CLK ='1') then
-    		if (pr_state = Etat_CalStart)then
-				if (value_A > value_B) then
-					value_A <= value_A - value_B;
-				elsif (value_A < value_B) then
-					value_B <= value_B - value_A;		
-				end if;
-			elsif (pr_state = Etat_Check) then
-				value_A <= to_integer(unsigned(idata_a));
-    			value_B <= to_integer(unsigned(idata_b));
-			else
-				value_A <= value_A;
-				value_B <= value_B;
-			end if;
-    	end if;
-    end process calcule;
-end Behavioral;
+                       IF idata_en = '1' THEN
+
+                            --
+                            -- Les pré-conditions
+                            --                       
+                            -- pragma translate_off
+                            ASSERT UNSIGNED(idata_a) >= TO_UNSIGNED(    0, 32) SEVERITY FAILURE;
+                            ASSERT UNSIGNED(idata_a) <= TO_UNSIGNED(65535, 32) SEVERITY FAILURE;
+                            ASSERT UNSIGNED(idata_b) >= TO_UNSIGNED(    0, 32) SEVERITY FAILURE;
+                            ASSERT UNSIGNED(idata_b) <= TO_UNSIGNED(65535, 32) SEVERITY FAILURE;
+                            A_copy <= UNSIGNED(idata_a); -- NECESSAIRE POUR LES ASSEERTIONS A LA FIN
+                            B_copy <= UNSIGNED(idata_b); -- NECESSAIRE POUR LES ASSEERTIONS A LA FIN
+                            -- pragma translate_on
+
+                            A      <= UNSIGNED(idata_a);
+                            B      <= UNSIGNED(idata_b);
+                            
+                            
+                            cstate <= RUNNING;
+                        ELSE
+                            cstate <= WAITING;
+                        END IF;
+                        
+                        odata    <= (others=>'0');
+                        odata_en <= '0';
+                    
+                    WHEN RUNNING =>
+
+                        IF A = TO_UNSIGNED(0, 32) THEN
+                            A      <= B;
+                            cstate <= SENDING;
+
+                        ELSIF B = TO_UNSIGNED(0, 32) THEN
+                            cstate <= SENDING;
+
+                        ELSIF A = B THEN
+                            cstate <= SENDING;
+
+                        ELSIF A > B THEN
+                            A      <= A - B;
+                            cstate <= RUNNING;
+
+                        ELSE
+                            B      <= B - A;
+                            cstate <= RUNNING;
+                        END IF;
+
+                        odata    <= (others=>'0');
+                        odata_en <= '0';
+
+                    WHEN SENDING =>
+
+                        --
+                        -- Les post-conditions
+                        --
+                        -- pragma translate_off
+                        ASSERT A >= TO_UNSIGNED(0,32) SEVERITY FAILURE;
+                        ASSERT A <= A_copy            SEVERITY FAILURE;
+                        ASSERT A <= B_copy            SEVERITY FAILURE;
+                        ASSERT (A_copy mod A) = 0     SEVERITY FAILURE;
+                        ASSERT (B_copy mod A) = 0     SEVERITY FAILURE;
+                        -- pragma translate_on
+                    
+                        cstate   <= WAITING;
+                        odata    <= STD_LOGIC_VECTOR( A );
+                        odata_en <= '1';
+                        
+                END CASE;
+            END IF;
+        END IF;
+    END PROCESS;
+
+END Behavioral;
