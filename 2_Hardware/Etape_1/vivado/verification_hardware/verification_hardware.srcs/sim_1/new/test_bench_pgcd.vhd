@@ -90,16 +90,27 @@ begin
         RESET <= '0';
         wait for 100 ns;
 
-        -- EDIT Add stimuli here
-        wait for 10 * TbPeriod;
-		idata_a <= std_logic_vector(to_unsigned(1000, 32));
-        idata_b <= std_logic_vector(to_unsigned(20, 32));
-        wait for 1 * TbPeriod;
-        idata_en <= '1';
-        wait for 1 * TbPeriod;
+
+    idata_a  <= STD_LOGIC_VECTOR( TO_UNSIGNED( 10, 32) );
+    idata_b  <= STD_LOGIC_VECTOR( TO_UNSIGNED( 80, 32) );
+    idata_en <= '1';
+    wait for 10 ns;
+    while odata_en = '0' loop
         idata_en <= '0';
-        wait for 100 * TbPeriod;  
-        
+        wait for 10 ns;
+    end loop;
+ASSERT UNSIGNED(odata) = TO_UNSIGNED( 10, 32) SEVERITY ERROR;
+
+    idata_a  <= STD_LOGIC_VECTOR( TO_UNSIGNED( 18, 32) );
+    idata_b  <= STD_LOGIC_VECTOR( TO_UNSIGNED( 12, 32) );
+    idata_en <= '1';
+    wait for 10 ns;
+    while odata_en = '0' loop
+    idata_en <= '0';
+    wait for 10 ns;
+end loop;  
+  ASSERT UNSIGNED(odata) = TO_UNSIGNED( 6, 32) SEVERITY ERROR;
+      
         -- Stop the clock and hence terminate the simulation
         TbSimEnded <= '1';
         wait;

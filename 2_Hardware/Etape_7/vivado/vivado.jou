@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Feb 11 17:03:36 2021
+# Process ID: 4384
+# Current directory: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18856 D:\Documents\GitHub\VIVADO_EN224-Test-et-verification\2_Hardware\Etape_7\vivado\vivado.xpr
+# Log file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.log
+# Journal file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+add_files -fileset constrs_1 -norecurse D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-A7-100T-Master.xdc
+export_ip_user_files -of_objects  [get_files D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-4-DDR-Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-4-DDR-Master.xdc
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_run impl_1

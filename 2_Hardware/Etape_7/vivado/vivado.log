@@ -1,0 +1,52 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Feb 11 17:03:36 2021
+# Process ID: 4384
+# Current directory: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18856 D:\Documents\GitHub\VIVADO_EN224-Test-et-verification\2_Hardware\Etape_7\vivado\vivado.xpr
+# Log file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.log
+# Journal file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.xpr
+INFO: [Project 1-313] Project file moved from '/home/legal/EN224-Test-et-verification/2_Hardware/Etape_6/vivado' since last save.
+CRITICAL WARNING: [Project 1-311] Could not find the file 'D:/Documents/GitHub/vhdl/ModulePGCD/src/tb_PGCD.vhd', nor could it be found using path 'D:/home/legal/vhdl/ModulePGCD/src/tb_PGCD.vhd'.
+CRITICAL WARNING: [Project 1-311] Could not find the file 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/tb_PGCD_behav.wcfg', nor could it be found using path 'D:/home/legal/EN224-Test-et-verification/2_Hardware/Etape_6/vivado/tb_PGCD_behav.wcfg'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-509] GeneratedRun file for 'synth_1' not found
+WARNING: [Project 1-509] GeneratedRun file for 'impl_1' not found
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.ip_user_files', nor could it be found using path 'D:/home/legal/EN224-Test-et-verification/2_Hardware/Etape_6/vivado/vivado.ip_user_files'.
+INFO: [Project 1-230] Project 'vivado.xpr' upgraded for this version of Vivado.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 898.305 ; gain = 261.641
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_runs synth_1 -jobs 6
+[Thu Feb 11 17:07:24 2021] Launched synth_1...
+Run output will be captured here: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/synth_1/runme.log
+add_files -fileset constrs_1 -norecurse D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-A7-100T-Master.xdc
+export_ip_user_files -of_objects  [get_files D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-4-DDR-Master.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/xdc/Nexys-4-DDR-Master.xdc
+reset_run synth_1
+launch_runs impl_1 -jobs 6
+[Thu Feb 11 17:14:47 2021] Launched synth_1...
+Run output will be captured here: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/synth_1/runme.log
+[Thu Feb 11 17:14:48 2021] Launched impl_1...
+Run output will be captured here: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Thu Feb 11 17:17:41 2021] Launched impl_1...
+Run output will be captured here: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1238.250 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 203 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1240.422 ; gain = 256.152
+INFO: [Common 17-344] 'open_run' was cancelled

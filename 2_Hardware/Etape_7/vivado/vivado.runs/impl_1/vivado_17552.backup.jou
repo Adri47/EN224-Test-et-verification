@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Feb 11 17:15:55 2021
+# Process ID: 17552
+# Current directory: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/impl_1
+# Command line: vivado.exe -log PGCD_uart.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source PGCD_uart.tcl -notrace
+# Log file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/impl_1/PGCD_uart.vdi
+# Journal file: D:/Documents/GitHub/VIVADO_EN224-Test-et-verification/2_Hardware/Etape_7/vivado/vivado.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source PGCD_uart.tcl -notrace
